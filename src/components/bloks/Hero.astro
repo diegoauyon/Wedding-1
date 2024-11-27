@@ -33,7 +33,7 @@ const text = renderRichText(content);
     thumbnail && (
       <div class={`parallax absolute inset-0 ${bg_opacity || ""}`}>
         {true && (
-          <VideoInline url="/videos/proposal.mp4" client:visible className="">
+          <VideoInline url="/videos/proposal.webm" client:visible className="">
             {thumbnail?.filename && (
               <Picture
                 src={thumbnail.filename}

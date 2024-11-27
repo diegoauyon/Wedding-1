@@ -111,6 +111,7 @@ let socialImage = meta.image + "/m/1200x630/smart/filters:format(png)";
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://cdn.jsdelivr.net/npm/pagedone@1.2.2/src/css/pagedone.css " rel="stylesheet"/>
     <title>{meta.title}</title>
     <SEO
       title={meta.title}
@@ -197,6 +198,7 @@ let socialImage = meta.image + "/m/1200x630/smart/filters:format(png)";
     {!bridge && <ViewTransitions />}
   </head>
   <body class={`${surface_page || ""}`}>
+    <script src="https://cdn.jsdelivr.net/npm/pagedone@1.2.2/src/js/pagedone.js"></script>
     {bridge && <SbBridge client:load />}
     <header
       class="pointer-events-none fixed inset-x-0 top-0 z-50 transition-all duration-500"

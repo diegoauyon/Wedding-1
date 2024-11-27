@@ -14,9 +14,9 @@ const env = loadEnv("", process.cwd(), ["STORYBLOK", "NETLIFY"]);
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astrorante.unfolding.io/",
+  site: "https://test.test.com/",
   output: "hybrid",
-  adapter: env.NETLIFY ? netlify() : vercel(), // vercel() or netlify()
+  adapter: vercel(), // vercel() or netlify()
   integrations: [
     storyblok({
       accessToken: env.STORYBLOK_PREVIEW_TOKEN,
@@ -25,6 +25,7 @@ export default defineConfig({
         page: "components/bloks/Page",
         post: "components/bloks/Post",
         hero: "components/bloks/Hero",
+        countdown: "components/bloks/Countdown",
         text_media: "components/bloks/TextMedia",
         menus: "components/bloks/Menu",
         menu_items: "components/bloks/MenuItems",
@@ -33,7 +34,7 @@ export default defineConfig({
         banner: "components/bloks/Banner",
       },
       apiOptions: {
-        region: "eu", // optional,  or 'eu' (default)
+        region: "us", // optional,  or 'eu' (default)
       },
     }),
     tailwind({

@@ -7,8 +7,12 @@ import { STORYBLOK_SPACE_ID, getSecret } from "astro:env/server";
 const token = getSecret("STORYBLOK_PERSONAL_TOKEN");
 export const api = useStoryblokApi();
 
+
+console.log("🚀 ~ file: storyblokApi.ts ~ line 6 ~ token", token)
+
 const Storyblok = new StoryblokClient({
   oauthToken: token,
+  region: "us",
 });
 
 function extractDataSlug(slug: string, lang: string) {
@@ -333,6 +337,7 @@ export const pushDataSources = async (
 };
 
 export const removeDataSources = async () => {
+  console.log("Removing DataSources", STORYBLOK_SPACE_ID);
   const dataSources = await Storyblok.get(
     `/spaces/${STORYBLOK_SPACE_ID}/datasources/`,
     {},
@@ -349,6 +354,7 @@ export const removeDataSources = async () => {
 };
 
 export const pullComponents = async () => {
+  console.log("pullComponents DataSources", STORYBLOK_SPACE_ID);
   const components = await Storyblok.get(
     `/spaces/${STORYBLOK_SPACE_ID}/components/`,
     {},
@@ -358,6 +364,7 @@ export const pullComponents = async () => {
 };
 
 export const pushComponents = async (data: any, current: any) => {
+  console.log("pushComponents DataSources", STORYBLOK_SPACE_ID);
   if (!data) return;
 
   for (const item of data) {
@@ -391,6 +398,7 @@ export const pushComponents = async (data: any, current: any) => {
 };
 
 export const removeComponents = async () => {
+  console.log("removeComponents DataSources", STORYBLOK_SPACE_ID);
   const components = await Storyblok.get(
     `/spaces/${STORYBLOK_SPACE_ID}/components/`,
     {},

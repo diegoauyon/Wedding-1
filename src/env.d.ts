@@ -120,6 +120,34 @@ interface BannerStoryblok {
   [k: string]: any;
 }
 
+interface CountdownStoryblok {
+  image: AssetStoryblok;
+  video?: AssetStoryblok;
+  surface?: string;
+  align?:
+    | ""
+    | "text-left mr-auto justify-items-start"
+    | "text-right ml-auto justify-items-end"
+    | "text-center mx-auto justify-items-center";
+  container?: "" | "normal" | "breakout" | "full-width";
+  content: RichtextStoryblok;
+  opacity?:
+    | ""
+    | "opacity-10"
+    | "opacity-20"
+    | "opacity-30"
+    | "opacity-40"
+    | "opacity-50"
+    | "opacity-60"
+    | "opacity-70"
+    | "opacity-80"
+    | "opacity-90";
+  links?: LinkStoryblok[];
+  component: "countdown";
+  _uid: string;
+  [k: string]: any;
+}
+
 interface HeroStoryblok {
   surface?: string;
   accent_color?:
@@ -294,6 +322,7 @@ interface PageStoryblok {
     | RichtextStoryblok
     | NewsItemsStoryblok
     | BannerStoryblok
+    | CountdownStoryblok
   )[];
   og_title: string;
   og_description: string;

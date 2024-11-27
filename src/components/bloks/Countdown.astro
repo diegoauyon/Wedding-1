@@ -1,0 +1,204 @@
+---
+import { storyblokEditable, renderRichText } from "@storyblok/astro";
+import VideoInline from "@components/media/VideoInline.vue";
+import Picture from "@components/media/Picture.astro";
+import Link from "@components/navigation/Link.astro";
+import Intersecting from "@components/helpers/Intersecting.vue";
+interface Props {
+  blok: TextMediaStoryblok;
+}
+
+const { blok } = Astro.props;
+
+const { Date: date } =
+  blok;
+
+
+
+console.log(blok, date);
+
+
+---
+<script is:inline>
+
+
+  let dest = new Date("apr 25, 2025 15:00:00").getTime();
+  let x = setInterval(function () {
+    let now = new Date().getTime();
+    let diff = dest - now;
+
+    // Check if the countdown has reached zero or negative
+    if (diff <= 0) {
+      clearInterval(x); // Stop the countdown
+      return; // Exit the function
+    }
+
+    let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    if (days < 10) {
+    days = `0${days}`;
+    }
+    if (hours < 10) {
+    hours = `0${hours}`;
+    }
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+    }
+    if (seconds < 10) {
+    seconds = `0${seconds}`;
+    }
+
+    // Get elements by class name
+    let countdownElements = document.getElementsByClassName("countdown-elements");
+
+    console.log(countdownElements);
+
+    // Loop through the elements and update their content
+    for (let i = 0; i < countdownElements.length; i++) {
+      let className = countdownElements[i].classList[1]; // Get the second class name
+        switch (className) {
+          case "days":
+            countdownElements[i].innerHTML = days;
+            break;
+          case "hours":
+            countdownElements[i].innerHTML = hours;
+            break;
+          case "minutes":
+            countdownElements[i].innerHTML = minutes;
+            break;
+          case "seconds":
+            countdownElements[i].innerHTML = seconds;
+            break;
+          default:
+            break;
+        }
+      }
+  }, 1000);
+
+</script>
+
+<script is:inline>
+
+  let seconds = '00';
+  let minutes = '00';
+  let hours = '00';
+  let days = '00';
+  let distance = 0;
+  let countdown = null;
+  let beerTime = new Date('apr 25, 2025 15:00:00').getTime();
+  let now = new Date().getTime();
+  let countdownElements = document.getElementsByClassName("countdown-element");
+  
+  function padNum(num) {
+    let zero = '';
+    for (let i = 0; i < 2; i++) {
+      zero += '0';
+    }
+
+    if (num < 10) {
+      return (zero + num).slice(-2);
+    } else {
+      return num;
+    }
+  }
+  
+  function start() {
+    countdown = setInterval(() => {
+      // Calculate time
+      now = new Date().getTime();
+      distance = beerTime - now;
+      // Set Times
+      days = padNum( Math.floor(distance / (1000*60*60*24)) );
+      hours = padNum( Math.floor((distance % (1000*60*60*24)) / (1000*60*60)) );
+      minutes = padNum( Math.floor((distance % (1000*60*60)) / (1000*60)) );
+      seconds = padNum( Math.floor((distance % (1000*60)) / 1000) );
+      // Stop
+  
+      console.log(days, hours, minutes, seconds, distance);
+      if (distance < 0) {
+        clearInterval(countdown);
+        days = '00';
+        hours = '00';
+        minutes = '00';
+        seconds = '00';
+      }
+  
+      for (let i = 0; i < countdownElements.length; i++) {
+        let className = countdownElements[i].classList[1]; // Get the second class name
+          switch (className) {
+            case "days":
+              countdownElements[i].innerHTML = days;
+              break;
+            case "hours":
+              countdownElements[i].innerHTML = hours;
+              break;
+            case "minutes":
+              countdownElements[i].innerHTML = minutes;
+              break;
+            case "seconds":
+              countdownElements[i].innerHTML = seconds;
+              break;
+            default:
+              break;
+          }
+        }
+    },1000);
+  }
+  
+  
+  window.addEventListener('load', function () {
+    start();
+  })
+  </script>
+    
+
+<div>
+  <div class="relative w-full overflow-hidden bg-lime-500 flex items-center justify-center px-5 py-5" id="countdown-container">
+    <div class="text-lime-100">
+        <h1 class="text-3xl text-center mb-3 countdown-title">¿Cuándo para la boda?</h1>
+        <div class="text-6xl text-center flex flex-wrap w-full items-center justify-center countdown-cards">
+            <div class="w-20 mx-1 p-2 bg-white text-lime-500 rounded-lg">
+                <div class="countdown-element days font-mono text-sm md:text-xl leading-none">00</div>
+                <div class="font-mono uppercase text-sm leading-none">Días</div>
+            </div>
+            <div class="w-20 mx-1 p-2 bg-white text-lime-500 rounded-lg">
+                <div class="countdown-element hours font-mono text-sm md:text-xl leading-none">00</div>
+                <div class="font-mono uppercase text-sm leading-none">Horas</div>
+            </div>
+            <div class="w-20 mx-1 p-2 bg-white text-lime-500 rounded-lg">
+                <div class="countdown-element minutes font-mono text-sm md:text-xl leading-none">00</div>
+                <div class="font-mono uppercase text-sm leading-none">Minutos</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+  
+
+<style>
+  .text-center {
+    .buttons {
+      @apply justify-center;
+    }
+  }
+  .countdown-cards {
+    gap: 16px;
+  }
+
+  .countdown-title {
+    color: rgb(13 99 28);
+  }
+
+  #countdown-container {
+
+    min-height:30vh;
+    background-image: url("/images/background-2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+</style>

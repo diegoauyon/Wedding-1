@@ -1084,7 +1084,8 @@
           "text_media",
           "richtext",
           "news_items",
-          "banner"
+          "banner",
+          "countdown"
         ],
         "component_group_whitelist": [
           

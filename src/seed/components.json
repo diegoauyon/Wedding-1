@@ -1221,7 +1221,8 @@
           "richtext",
           "text_media",
           "banner",
-          "news_items"
+          "news_items",
+          "countdown"
         ],
         "component_group_whitelist": [
           

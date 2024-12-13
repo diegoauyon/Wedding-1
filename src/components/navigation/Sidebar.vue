@@ -53,8 +53,6 @@ onMounted(() => {
       </DrawerTrigger>
       <DrawerContent :class="surface || 'surface-secondary'">
         <DrawerHeader>
-          <slot name="logo" />
-
           <DrawerTitle class="hidden">{{ labels.menu }}</DrawerTitle>
           <DrawerDescription class="hidden">{{
             labels.menu

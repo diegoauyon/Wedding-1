@@ -43,8 +43,6 @@ const { Date: date } =
     // Get elements by class name
     let countdownElements = document.getElementsByClassName("countdown-elements");
 
-    console.log(countdownElements);
-
     // Loop through the elements and update their content
     for (let i = 0; i < countdownElements.length; i++) {
       let className = countdownElements[i].classList[1]; // Get the second class name
@@ -106,7 +104,6 @@ const { Date: date } =
       seconds = padNum( Math.floor((distance % (1000*60)) / 1000) );
       // Stop
   
-      console.log(days, hours, minutes, seconds, distance);
       if (distance < 0) {
         clearInterval(countdown);
         days = '00';

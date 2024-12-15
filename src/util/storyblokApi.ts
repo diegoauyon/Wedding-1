@@ -7,9 +7,6 @@ import { STORYBLOK_SPACE_ID, getSecret } from "astro:env/server";
 const token = getSecret("STORYBLOK_PERSONAL_TOKEN");
 export const api = useStoryblokApi();
 
-
-console.log("🚀 ~ file: storyblokApi.ts ~ line 6 ~ token", token)
-
 const Storyblok = new StoryblokClient({
   oauthToken: token,
   region: "us",
@@ -33,7 +30,6 @@ export const getSettings = async (lang?: string | undefined) => {
 
     return settingsData?.story?.content as SettingsStoryblok;
   } catch (error) {
-    console.log("Fetch Settings error:", error);
     throw new Error("Can't fetch settings, is it published?");
   }
 };

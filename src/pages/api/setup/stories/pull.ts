@@ -11,7 +11,7 @@ export const GET: APIRoute = async ({ url }) => {
     let stories = await pullStories();
 
     if (!!type) {
-      console.log("filtering stories by type", type);
+      //console.log("filtering stories by type", type);
       stories = stories.filter((story) => story?.content?.component === type);
     }
     return new Response(JSON.stringify(stories || []), {

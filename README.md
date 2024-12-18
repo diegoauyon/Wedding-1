@@ -50,11 +50,6 @@ export default defineConfig({
 
 ```
 
-### 🚀 6. Deploy to Vercel or Netlify
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Funfolding-io%2FAstrorante&env=STORYBLOK_PREVIEW_TOKEN,STORYBLOK_PERSONAL_TOKEN,STORYBLOK_SPACE_ID,LOCALE,CURRENCY,SITE_LANG&envDescription=Configure%20your%20site%3A&envLink=https%3A%2F%2Fastrorante.unfolding.io%2Fnews%2Fgetting-started%2F)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/unfolding-io/Astrorante)
-
 ## 🛸 Commands
 
 All commands are run from the root of the project, from a terminal:
@@ -76,29 +71,3 @@ Check out [Astro documentation](https://docs.astro.build) or jump into Astro's
 ## 📚 Tech Stack
 
 Astro, Storyblok CMS, Vue, TailwindCSS
-
-## 🛟 Support
-
-If you encounter any issues or bugs, we encourage you to open an issue in the repository. To help us
-quickly address the problem, please provide detailed information about the bug and steps to
-reproduce it.
-
-For those seeking priority assistance, we offer premium support services. Feel free to reach out to
-us by email at [hello@unfolding.io.](mailto:hello@unfolding.io.) We're here to help!
-
-## ☕️ Want to Caffeinate your Developer?
-
-By [caffeinating](https://www.buymeacoffee.com/unfolding.io) your developer, you're not just getting
-the best out of them; you're also ensuring a cheerful and energetic work environment.😊
-
-[![buymeacoffee](https://starfunnel.unfolding.io/screenshots/bymeacoffee.webp)](https://www.buymeacoffee.com/unfolding.io)
-
-## 📸 Screenshots
-
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_0.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_1.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_2.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_3.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_4.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_5.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/sync.png)
